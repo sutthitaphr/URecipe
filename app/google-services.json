@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "924700576300",
+    "project_id": "urecipe-d8035",
+    "storage_bucket": "urecipe-d8035.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:924700576300:android:a0e6e6553e316e0d381f89",
+        "android_client_info": {
+          "package_name": "com.example.urecipe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "924700576300-6t0ij99lj8r7p9milfe229chkjmq8q1t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.urecipe",
+            "certificate_hash": "8072c359ac547f658906fc15e97f4d3a0bffe372"
+          }
+        },
+        {
+          "client_id": "924700576300-0d3ssk1id192hs0gb27bjrtpr0vprk2f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8u_nKLnftOnOI7HBXzHSumtDjonkOxTg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "924700576300-0d3ssk1id192hs0gb27bjrtpr0vprk2f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

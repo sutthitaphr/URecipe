@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">URecipe</string>
+    <string name="title_explore">Explore</string>
+    <string name="title_home">Home</string>
+    <string name="title_message">Message</string>
+    <string name="title_settings">Settings</string>
+    <string name="recent">Recent</string>
+    <string name="my_recipe">My Recipe</string>
+    <string name="my_favourite">My Favourite</string>
+    <string name="general">General</string>
+    <string name="about_us">About Us</string>
+    <string name="rating_amp_feedback"><![CDATA[Rating & Feedback]]></string>
+    <string name="privacy_policy">Privacy policy</string>
+    <string name="title_email">Email</string>
+    <string name="title_password">Password</string>
+    <string name="login">Login</string>
+    <string name="log_in_via_google">Log in via Google</string>
+    <string name="sign_up_underline"> <u>Create new one</u> </string>
+    <string name="username">Username</string>
+    <string name="log_in_via_facebook">Log in via Facebook</string>
+    <string name="log_in_via_twitter">Log in via Twitter</string>
+    <string name="or">OR</string>
+    <string name="login_underline"><u>Log In</u></string>
+    <string name="sign_up">Sign Up</string>
+    <string name="notifications">Notifications</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="my_account">My Account</string>
+    <string name="search">Search</string>
+    <string name="add">Add</string>
+    <string name="get_started">Get Started</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="create_an_account">Create an account</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete_account_btn">Delete Account</string>
+    <string name="are_you_sure_you_want_to_delete_your_account_n_this_will_permanently_erase_all_data_n_associate_with_this_account">
+        Are you sure you want to delete your account?\n This will permanently erase all data \n associate with this account.
+    </string>
+    <string name="title_of_your_recipe">Title of your recipe</string>
+    <string name="recipe_name">Recipe Name</string>
+    <string name="ingredients"><b>Ingredients:</b></string>
+    <string name="recipe_image">Recipe_image</string>
+    <string name="add_photo_video">Add Photo/Video</string>
+    <string name="recipe_example">Example \n 100g Flour \n 40g Sugar \n 1 Egg \n ½ tsp Baking Powder</string>
+    <string name="directions"><b>Directions:</b></string>
+    <string name="directions_example">
+        1. Melt the butter and let it cool for 5 minutes. \n 2.Mix the flour and baking power in a large bowl.
+    </string>
+    <string name="title">Title</string>
+    <string name="new_message">New Message</string>
+    <string name="aboutUs_txtView">
+        <b>URecipe</b> is a mobile application that has various recipes from around the world. Not only such recipes are in the application but also includes the weirdest and wildest but tastiest menu that people may never hear of. This references the application name \“URecipe\”,  which stands for \“Unique Recipe\”.
+        \n\nThe URecipe application is designed to act as a kitchen assistant, making cooking easier, faster, and more convenient. A virtual cook who may guide users and allow them to share their created unique dishes and chat with other users.
+        \n\nCooking is a rewarding activity that allows people to turn basic food into something appealing and captivating. For the first two months of the Covid-19 lockdown, there were a ton of food photographs uploaded by people who loved to spend the lockdown perfecting their culinary abilities and this is the reason this project was chosen to undertake.
+    </string>
+    <string name="policy_txtView1">The privacy policy of the URecipe App outlines how we process personal data when the user uses our services. Personal data is any content that can be used to identify the users. We prioritize the protection of users\’ private information. If you have any queries or would like more information about our policy, please contact <b><i>urecipeproject@gmail.com</i></b>.
+    </string>
+    <string name="policy_txtView2">\n<b>User Permissions</b>\nIn terms of user personal information, users have the right to access, data, clarification, deletion, portability, and to oppose to the processing of user\ data. Users also have the right to revoke your permission if the processing depends on it.
+        \n\n<b>Complaint Rights </b>\nUsers have the right to make a complaint with a supervisory authority and the right to file a claim with a specific data security supervisory authority over our handling of user personal data.
+        \n\n<b>Process of personal data throughout the service </b>\nDuring the course of our services, we process the following types of personal data: Names, addresses, phone numbers, and email addresses are sources of personally specific information. Private details such as age, gender, and date of birth. The information is made accessible by the user\'s browser or device. Credit or debit card numbers are examples of financial identifying data.
+        \n\n<b>URecipe Services </b>
+        \n\n1. Throughout the use of the server, we may capture users\' information such as name, phone number, email address, and credit card information.
+
+ \n2. We may collect those details to perform the services that the user asked to maintain the application up to date.
+
+ \n3. Users\' information may be shared with vendors, service providers, and affiliates.
+
+ \n4. We utilize suitable security measures to protect users\’ data and require our service partners to do the same.
+
+ \n5. Updates to Privacy Policies: Any major changes will be disclosed to you by issuing a new version of this Privacy Policy and taking other actions as necessary.
+    </string>
+    <string name="welcome_msg">Thank you so much for considering our application!
+        \n\nHere we will help you organize your recipe and provide step-by-step instructions. You can browse various recipes, save your favorites, and use voice control to activate audio instructions. If you have any questions, please email us at <b><i>urecipeproject@gmail.com</i></b>.
+    </string>
+    <string name="welcome_to">Welcome to</string>
+</resources>
