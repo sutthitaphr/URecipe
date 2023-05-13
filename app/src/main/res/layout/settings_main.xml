@@ -17,25 +17,25 @@
         android:textColor="@color/dark_grey"
         android:text="@string/general" />
 
-    <androidx.appcompat.widget.SwitchCompat
+    <Switch
         android:id="@+id/notification_switch"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="@string/notifications"
         android:textColor="@color/dark_grey"
         android:textSize="13sp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="80dp"
         android:layout_marginStart="50dp"/>
 
-    <androidx.appcompat.widget.SwitchCompat
+    <Switch
         android:id="@+id/dark_mode_switch"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="110dp"
         android:text="@string/dark_mode"
         android:textColor="@color/dark_grey"
-        android:textSize="13sp"
-        android:layout_marginTop="100dp"
-        android:layout_marginStart="50dp"/>
+        android:textSize="13sp" />
 
     <TextView
         android:id="@+id/about_us_txt"

@@ -13,6 +13,5 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.message_welcome_dialog);
         getSupportActionBar().setTitle("Welcome Message");
-
     }
 }

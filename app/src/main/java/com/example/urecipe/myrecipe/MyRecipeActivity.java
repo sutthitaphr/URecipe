@@ -1,83 +1,69 @@
 package com.example.urecipe.myrecipe;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.example.urecipe.R;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.firestore.Query;
+
+import java.util.Objects;
 
 public class MyRecipeActivity extends AppCompatActivity {
 
     FloatingActionButton addBtn;
-    AlertDialog alertDialog;
-    LinearLayout layout;
+    RecyclerView recipeListView;
+    RecipeAdapter recipeAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_recipe_main);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("My Recipe");
 
-        addBtn = findViewById(R.id.add_recipe);
-        layout = findViewById(R.id.container);
-
-        buildDialog();
-
-        addBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog.show();
-            }
-        });
-    }
-
-    private void buildDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        View v = getLayoutInflater().inflate(R.layout.my_recipe_dialog, null);
-
-        EditText recipeName = v.findViewById(R.id.add_name);
-
-        builder.setView(v);
-        builder.setTitle("Enter name")
-                .setPositiveButton("Add", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        addCard(recipeName.getText().toString());
-                    }
-                })
-                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                });
-
-        alertDialog = builder.create();
-    }
-
-    private void addCard(String name) {
-        View view = getLayoutInflater().inflate(R.layout.my_recipe_card, null);
-
-        TextView nameView = view.findViewById(R.id.nameTxt);
-        ImageButton delete = view.findViewById(R.id.delete_btn);
-
-        nameView.setText(name);
-
-        delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout.removeView(view);
-            }
+        addBtn = findViewById(R.id.add_recipe_btn);
+        addBtn.setOnClickListener(view -> {
+            Intent intent = new Intent(MyRecipeActivity.this, RecipeDetailsActivity.class);
+            startActivity(intent);
         });
 
-        layout.addView(view);
+        recipeListView = findViewById(R.id.my_recipe_list);
+        setRecipeListView();
+    }
+
+    //Retrieve recipes from the Firebase and display in the RecyclerView
+    void setRecipeListView(){
+        //Query the database from the collection
+        Query query = RecipeDatabase.getCollectionReferenceForRecipes().orderBy("timestamp",Query.Direction.DESCENDING);
+        //Return the recycler options from the query with recipes
+        FirestoreRecyclerOptions<Recipe> options = new FirestoreRecyclerOptions.Builder<Recipe>().setQuery(query,Recipe.class).build();
+
+        recipeListView.setLayoutManager(new LinearLayoutManager(this));
+        recipeAdapter = new RecipeAdapter(options, this);
+        recipeListView.setAdapter(recipeAdapter);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        recipeAdapter.startListening();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        recipeAdapter.stopListening();
+    }
+
+    //When the recipes are updated
+    @Override
+    protected void onResume() {
+        super.onResume();
+        recipeAdapter.notifyDataSetChanged();
     }
 }

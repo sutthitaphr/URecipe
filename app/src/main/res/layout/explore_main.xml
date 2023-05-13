@@ -14,25 +14,21 @@
         app:menu="@menu/menu"
         android:layout_alignParentBottom="true"/>
 
-    <SearchView
-        android:layout_width="380dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/search_bg"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="90dp"
-        android:layout_centerHorizontal="true"
-        app:cardCornerRadius="10dp">
-
-        <ImageView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/home_bg"/>
+            android:layout_height="658dp"
+            android:clipChildren="false"
+            android:clipToPadding="true"
+            android:scrollbars="vertical">
 
-    </androidx.cardview.widget.CardView>
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </LinearLayout>
 
 </RelativeLayout>

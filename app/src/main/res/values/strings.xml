@@ -74,4 +74,17 @@
         \n\nHere we will help you organize your recipe and provide step-by-step instructions. You can browse various recipes, save your favorites, and use voice control to activate audio instructions. If you have any questions, please email us at <b><i>urecipeproject@gmail.com</i></b>.
     </string>
     <string name="welcome_to">Welcome to</string>
+    <string name="time">Cooking Time</string>
+    <string name="log_out">Log Out</string>
+    <string name="time_length">Time Length</string>
+    <string name="procedures">Procedures</string>
+    <string name="ingredients_text">Ingredients</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="date_created">Date Created</string>
+    <string name="proce_title">Procedures:</string>
+    <string name="time_title">Time Length:</string>
+    <string name="delete_recipe">Delete Recipe</string>
+    <string name="welcome">Welcome!</string>
+    <string name="ingredients1">Ingredients</string>
+    <string name="speech">Say \"recipe\" to open this recipe</string>
 </resources>

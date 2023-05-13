@@ -17,22 +17,27 @@
         tools:layout_editor_absoluteX="137dp"
         tools:layout_editor_absoluteY="48dp" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/username"
-        android:layout_marginTop="150dp"
-        android:layout_centerHorizontal="true"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/email_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/title_email"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="170dp"
         android:layout_centerHorizontal="true"
-        android:textSize="17sp"/>
+        android:textStyle="bold"
+        android:textSize="19sp"
+        android:background="?attr/selectableItemBackgroundBorderless"/>
+
+
+    <Button
+        android:id="@+id/logout_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="450dp"
+        android:text="@string/log_out"
+
+        tools:ignore="TextContrastCheck" />
 </RelativeLayout>

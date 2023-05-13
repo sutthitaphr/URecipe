@@ -8,7 +8,7 @@
     android:background="@color/light_grey">
 
     <EditText
-        android:id="@+id/username_text"
+        android:id="@+id/email_text"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
@@ -17,7 +17,7 @@
         android:layout_marginBottom="490dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/username"
+        android:hint="@string/title_email"
         android:inputType="textEmailAddress"
         android:textColorHint="#455A64"
         tools:ignore="TouchTargetSizeCheck" />
@@ -48,7 +48,7 @@
         tools:ignore="TextContrastCheck" />
 
     <TextView
-        android:id="@+id/sign_up_text"
+        android:id="@+id/sign_up_link"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"

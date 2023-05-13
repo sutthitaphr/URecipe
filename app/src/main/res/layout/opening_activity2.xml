@@ -27,20 +27,4 @@
         android:backgroundTint="#9d4cfa"
         android:text="@string/create_an_account" />
 
-    <ImageButton
-        android:id="@+id/close_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="348dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="672dp"
-        android:backgroundTint="@android:color/transparent"
-        android:contentDescription="@string/title_home"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        app:srcCompat="@drawable/ic_close"
-        tools:ignore="TouchTargetSizeCheck" />
-
-
 </RelativeLayout>

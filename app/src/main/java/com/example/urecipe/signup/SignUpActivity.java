@@ -6,118 +6,98 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
-import android.view.View;
+
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.urecipe.MainActivity;
-import com.example.urecipe.OpeningActivity;
 import com.example.urecipe.R;
 import com.example.urecipe.login.LoginActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    EditText username;
-    EditText email;
-    EditText password;
-    TextView textView;
+    EditText emailTxt;
+    EditText passwordTxt;
+    EditText confirmPassTxt;
+    TextView loginTxt;
     Button signUpBtn;
-
-    //Connect to Realtime database
-    DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://urecipe-d8035-default-rtdb.firebaseio.com/");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up_main);
 
-        textView = (TextView) findViewById(R.id.login_text);
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
+        emailTxt = findViewById(R.id.email_text);
+        passwordTxt = findViewById(R.id.password_text);
+        confirmPassTxt = findViewById(R.id.password_confirm_text);
+        loginTxt = findViewById(R.id.login_text);
+        loginTxt.setOnClickListener(v -> {
+            //Open Login Page when clicked
+            Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
         });
-
-        username = findViewById(R.id.username_text);
-        email = findViewById(R.id.email_text);
-        password = findViewById(R.id.password_text);
 
         signUpBtn = findViewById(R.id.sign_up_btn);
-        signUpBtn.setOnClickListener(new View.OnClickListener() {
+        signUpBtn.setOnClickListener(v -> signUpAccount());
+    }
+
+    void signUpAccount() {
+        String email = emailTxt.getText().toString();
+        String password = passwordTxt.getText().toString();
+        String confirmPass = confirmPassTxt.getText().toString();
+
+        //If the validation is false, return
+        boolean isValidated = validateData(email,password,confirmPass);
+        if(!isValidated){
+            return;
+        }
+        //If the validation is true, create the account in Firebase
+        signUpAccountInFirebase(email,password);
+    }
+
+    void signUpAccountInFirebase(String email, String password){
+        //Create a firebase method to create an account
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        //Provided by Firebase
+        firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
             @Override
-            public void onClick(View view) {
-                String usernameInput = username.getText().toString();
-                String emailInput = email.getText().toString();
-                String passwordInput = password.getText().toString();
-
-                if(usernameInput.isEmpty()){
-                    username.setError("Username is required!");
-                    username.requestFocus();
-                    return;
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    //If the account is created, show this message
+                    Toast.makeText(SignUpActivity.this, "Sign Up has been Successfully! Verify your email",Toast.LENGTH_SHORT).show();
+                    //Send the verification via email before logging in
+                    firebaseAuth.getCurrentUser().sendEmailVerification();
+                    //User cannot login before verify their email
+                    firebaseAuth.signOut();
+                    finish();
+                }else{
+                    //If the account is not created, show this message
+                    Toast.makeText(SignUpActivity.this, "Something went wrong while signing up!",Toast.LENGTH_SHORT).show();
                 }
-                if(emailInput.isEmpty()){
-                    email.setError("Email is required!");
-                    email.requestFocus();
-                    return;
-                }
-                //Email validation
-                if(!Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()){
-                    email.setError("Please provide a valid email!");
-                    email.requestFocus();
-                    return;
-                }
-                if(passwordInput.isEmpty()){
-                    password.setError("Password is required!");
-                    password.requestFocus();
-                    return;
-                }
-
-                //Check password length
-                if(passwordInput.length() < 7){
-                    password.setError("Min password length should be 7 characters!");
-                    password.requestFocus();
-                    return;
-                }
-
-                databaseRef.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                        //Check for a already registered username
-                        if(snapshot.hasChild(usernameInput)){
-                            Toast.makeText(SignUpActivity.this, "This username is already registered!", Toast.LENGTH_LONG).show();
-                        }
-                        else{
-
-                            //Put user details under their username
-                            databaseRef.child("users").child(usernameInput).child("email").setValue(emailInput);
-                            databaseRef.child("users").child(usernameInput).child("password").setValue(passwordInput);
-
-                            Toast.makeText(SignUpActivity.this, "Sign Up has been Successfully!", Toast.LENGTH_LONG).show();
-                            finish();
-
-                            Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
-                            startActivity(intent);
-
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
             }
         });
+    }
+
+    //Validate the user email and Password
+    boolean validateData(String email, String password, String confirmPass){
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            emailTxt.setError("Email is invalid");
+            return false;
+        }
+        if(password.length()<6){
+            passwordTxt.setError("Min password length should be 7 characters!");
+            return false;
+        }
+        if(!password.equals(confirmPass)){
+            confirmPassTxt.setError("Password not matched!");
+            return false;
+        }
+        return true;
     }
 }

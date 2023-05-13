@@ -12,4 +12,6 @@
     <color name="dark_grey">#494849</color>
     <color name="light_grey">#d0d1d3</color>
     <color name="red">#E7625F</color>
+    <color name="dark_red">#B50400</color>
+    <color name="pearl">#FBFAF2</color>
 </resources>

@@ -12,10 +12,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.URecipe"
         tools:targetApi="31">
-
         <activity
-            android:name=".settings.DeleteAccActivity"
+            android:name=".video.VideoActivity"
             android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".explore.RecipeActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".myrecipe.RecipeDetailsActivity"
+            android:exported="false"
+            android:parentActivityName=".myrecipe.MyRecipeActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -59,15 +73,14 @@
         <activity
             android:name=".signup.SignUpActivity"
             android:exported="false"
-            android:parentActivityName=".OpeningActivity2">
+            android:parentActivityName=".login.LoginActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".login.LoginActivity"
-            android:exported="false"
-            android:parentActivityName=".OpeningActivity2">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -98,8 +111,7 @@
         </activity>
         <activity
             android:name=".settings.SettingsActivity"
-            android:exported="false"
-            android:parentActivityName=".MainActivity">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -111,12 +123,13 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name=".message.WelcomeActivity"
+        <activity
+            android:name=".message.WelcomeActivity"
             android:exported="false"
             android:parentActivityName=".message.MessageActivity">
             <meta-data
                 android:name="android.app.lib.name"
-                android:value=""/>
+                android:value="" />
         </activity>
         <activity
             android:name=".explore.ExploreActivity"

@@ -8,15 +8,17 @@
     android:background="@color/light_grey">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/fav_cardview"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="20dp"
         app:cardCornerRadius="10dp"
         android:layout_marginStart="20dp">
         <ImageView
+            android:id="@+id/fav_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/home_bg"/>
+            android:src="@drawable/home_bg4"/>
 
     </androidx.cardview.widget.CardView>
 
