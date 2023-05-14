@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.urecipe.R;
 
@@ -17,11 +20,20 @@ public class RecipeActivity extends AppCompatActivity {
     TextView vIngred;
     TextView vProcedTitle;
     TextView vProced;
+    ImageView saveBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.explore_recipe);
+
+        saveBtn = (ImageView)findViewById(R.id.save_btn);
+        saveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(RecipeActivity.this, "Saved Recipe!",Toast.LENGTH_SHORT).show();
+            }
+        });
 
         vRecipeName = (TextView)findViewById(R.id.recipe_name_view);
         vTimeTitle = (TextView)findViewById(R.id.time_title);

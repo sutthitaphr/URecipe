@@ -65,21 +65,18 @@ public class SignUpActivity extends AppCompatActivity {
         //Create a firebase method to create an account
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         //Provided by Firebase
-        firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    //If the account is created, show this message
-                    Toast.makeText(SignUpActivity.this, "Sign Up has been Successfully! Verify your email",Toast.LENGTH_SHORT).show();
-                    //Send the verification via email before logging in
-                    firebaseAuth.getCurrentUser().sendEmailVerification();
-                    //User cannot login before verify their email
-                    firebaseAuth.signOut();
-                    finish();
-                }else{
-                    //If the account is not created, show this message
-                    Toast.makeText(SignUpActivity.this, "Something went wrong while signing up!",Toast.LENGTH_SHORT).show();
-                }
+        firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(SignUpActivity.this, task -> {
+            if(task.isSuccessful()){
+                //If the account is created, show this message
+                Toast.makeText(SignUpActivity.this, "Sign Up has been Successfully! Verify your email",Toast.LENGTH_SHORT).show();
+                //Send the verification via email before logging in
+                firebaseAuth.getCurrentUser().sendEmailVerification();
+                //User cannot login before verify their email
+                firebaseAuth.signOut();
+                finish();
+            }else{
+                //If the account is not created, show this message
+                Toast.makeText(SignUpActivity.this, "Something went wrong while signing up!",Toast.LENGTH_SHORT).show();
             }
         });
     }
