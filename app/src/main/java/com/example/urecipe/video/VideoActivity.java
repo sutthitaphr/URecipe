@@ -76,6 +76,8 @@ public class VideoActivity extends AppCompatActivity {
         //Allow user to manage the playback
         MediaController controller = new MediaController(this);
         videoView.setMediaController(controller);
+        videoView.requestFocus();
+        videoView.start();
         controller.setAnchorView(videoView);
 
         speechTxt = findViewById(R.id.speech_txtV);

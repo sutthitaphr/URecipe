@@ -21,9 +21,9 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    EditText emailTxt;
-    EditText passwordTxt;
-    EditText confirmPassTxt;
+    static EditText emailTxt;
+    static EditText passwordTxt;
+    static EditText confirmPassTxt;
     TextView loginTxt;
     Button signUpBtn;
 
@@ -85,7 +85,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     //Validate the user email and Password
-    boolean validateData(String email, String password, String confirmPass){
+    static boolean validateData(String email, String password, String confirmPass){
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             emailTxt.setError("Email is invalid");
             return false;
