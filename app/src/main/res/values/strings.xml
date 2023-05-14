@@ -86,5 +86,9 @@
     <string name="delete_recipe">Delete Recipe</string>
     <string name="welcome">Welcome!</string>
     <string name="ingredients1">Ingredients</string>
-    <string name="speech">Say \"recipe\" to open this recipe</string>
+    <string name="speech">Say \"open recipe\" to see this recipe</string>
+    
+    <string name="_40_50_minutes">40 - 50 minutes</string>
+    <string name="brownies_ingre">8 ounces good-quality chocolate\n ¾ cup butter, melted \n 1¼ cups sugar \n 2 eggs \n 2 teaspoons vanilla \n ¾ cup all-purpose flour \n ¼ cup cocoa powder \n 1 teaspoon salt</string>
+    <string name="brownies_proced">Preheat oven to 350°F/180°C. \nChop the chocolate into chunks. Melt half, then save the other half for later. \nMix the butter and the sugar, then beat in the eggs and vanilla for 1-2 minutes until the mixture has become fluffy and light in color. \nWhisk in the reserved melted chocolate (make sure the chocolate is not too hot or else the eggs will cook), then sift in the flour, cocoa powder, and salt. \nFold the dry ingredients into the wet ingredients, being careful not to overmix as this will cause the brownies to be more cake-like in texture. \nFold in the chocolate chunks, then transfer the batter into a parchment paper-lined square baking dish. \nBake for 20-25 minutes, depending on how fudgy you like your brownies, then cool completely. \nSlice, then serve with a nice cold glass of milk! \n</string>
 </resources>

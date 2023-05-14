@@ -16,6 +16,7 @@ import com.example.urecipe.MainActivity;
 import com.example.urecipe.R;
 import com.example.urecipe.explore.ExploreActivity;
 import com.example.urecipe.message.MessageActivity;
+import com.example.urecipe.myrecipe.MyRecipeActivity;
 import com.example.urecipe.settings.SettingsActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -107,6 +108,10 @@ public class VideoActivity extends AppCompatActivity {
                 if(resultCode == RESULT_OK && null != input){
                     ArrayList<String> result = input.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     speechTxt.setText(result.get(0));
+                }
+                if(speechTxt.getText().toString().equals("open recipe")){
+                    Intent intent = new Intent(VideoActivity.this, VideoRecipeActivity.class);
+                    startActivity(intent);
                 }
                 break;
             }
